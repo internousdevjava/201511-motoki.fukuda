@@ -19,16 +19,17 @@ public class KisoKadai1 {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			if ( isNumber(sx)) {
+
+			if (isNumber(sx) && sx.length() < 4) {
 				x = Integer.parseInt(sx);
-					if ((x==0) || (x > 100)) {
-						System.out.println("1~100でたのみます＾＾");
-						continue;
-					}
-				//flag = false;
+				if (x == 0 || x > 100) {
+					System.out.println("1~100の数値で入力してください。");
+					continue;
+				}
+				// flag = false;
+
 			} else {
-				System.out.println("数値で入力してください。");
+				System.out.println("1~100の数値で入力してください。");
 				continue;
 			}
 
@@ -38,17 +39,18 @@ public class KisoKadai1 {
 				sy = br.readLine();
 			} catch (Exception e) {
 				e.printStackTrace();
+
 			}
 
-			if (isNumber(sy)) {
+			if (isNumber(sy) && sy.length() < 4) {
 				y = Integer.parseInt(sy);
-				if ((y == 0) || (y > 100)) {
-					System.out.println("1~100でたのみます＾＾");
+				if (y == 0 || y > 100) {
+					System.out.println("1~100の数値で入力してください。");
 					continue;
 				}
 				flag = false;
 			} else {
-				System.out.println("数値で入力してください。");
+				System.out.println("1~100の数値で入力してください。");
 				continue;
 			}
 
@@ -84,7 +86,8 @@ public class KisoKadai1 {
 			System.out.println("");
 		}
 	}
-	//数字か文字かを判断するメソッド
+
+	// 数字か文字かを判断するメソッド
 	public static boolean isNumber(String val) {
 		String regex = "\\A[-]?[0-9]+\\z";
 		Pattern p = Pattern.compile(regex);
